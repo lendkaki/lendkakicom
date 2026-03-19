@@ -217,10 +217,11 @@ export function Advantages() {
           {FEATURES.map((feature) => (
             <div
               key={feature.title}
-              className="group flex flex-col overflow-hidden rounded-2xl bg-surface transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              className="group grid overflow-hidden rounded-2xl bg-surface transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              style={{ gridTemplateRows: "6rem 11rem 1fr" }}
             >
-              {/* Card heading */}
-              <div className="px-7 pt-7">
+              {/* Row 1 — heading, fixed 6rem so all icons align regardless of title length */}
+              <div className="flex items-start overflow-hidden px-7 pt-7">
                 <h3
                   className="font-display font-bold leading-snug tracking-tight text-foreground"
                   style={{ fontSize: "var(--text-xl)" }}
@@ -229,13 +230,13 @@ export function Advantages() {
                 </h3>
               </div>
 
-              {/* Illustration area */}
-              <div className="mt-6 h-44 w-full px-7">
+              {/* Row 2 — illustration, fixed 11rem */}
+              <div className="w-full px-7">
                 {feature.illustration}
               </div>
 
-              {/* Description */}
-              <div className="mt-6 px-7 pb-7">
+              {/* Row 3 — description, fills remaining space */}
+              <div className="px-7 pb-7 pt-6">
                 <p className="text-sm leading-relaxed text-gray-500">
                   {feature.description}
                 </p>

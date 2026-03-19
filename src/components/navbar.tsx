@@ -31,7 +31,7 @@ export function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          className="font-display text-xl font-bold tracking-tight text-foreground"
+          className="font-[family-name:var(--font-vampiro-one)] text-xl tracking-tight text-foreground"
         >
           Lend<span className="text-accent-text">Kaki</span>
         </Link>

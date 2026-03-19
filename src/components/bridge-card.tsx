@@ -30,7 +30,7 @@ export function BridgeCard() {
               </Link>
               <Link
                 href="#how-it-works"
-                className="inline-flex items-center rounded-full border border-black/20 px-7 py-3.5 text-sm font-semibold text-accent-text transition-colors hover:bg-black/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
+                className="inline-flex items-center rounded-full border border-black/20 px-7 py-3.5 text-sm font-semibold text-accent-text transition-colors hover:border-white hover:bg-white hover:text-black focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
               >
                 See how it works
               </Link>

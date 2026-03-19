@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Instrument_Sans } from "next/font/google";
+import { DM_Sans, Instrument_Sans, Vampiro_One } from "next/font/google";
 import "./globals.css";
 import { WhatsAppWidget } from "@/components/whatsapp-widget";
 
@@ -13,6 +13,12 @@ const instrumentSans = Instrument_Sans({
   variable: "--font-instrument-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const vampiroOne = Vampiro_One({
+  variable: "--font-vampiro-one",
+  subsets: ["latin"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -29,7 +35,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${instrumentSans.variable} h-full`}
+      className={`${dmSans.variable} ${instrumentSans.variable} ${vampiroOne.variable} h-full`}
     >
       <body className="min-h-full flex flex-col">
         {children}

@@ -60,7 +60,7 @@ function SocialIcon({ platform }: { platform: "facebook" | "instagram" | "tiktok
       target="_blank"
       rel="noopener noreferrer"
       aria-label={`LendKaki on ${platform}`}
-      className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-700 text-gray-400 transition-colors hover:border-gray-500 hover:text-white"
+      className="flex h-9 w-9 items-center justify-center rounded-full border border-gray-700 text-gray-400 transition-colors hover:border-accent hover:text-accent"
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
         <path d={paths[platform]} />
@@ -78,7 +78,7 @@ export function Footer() {
           <div>
             <Link
               href="/"
-              className="font-display text-xl font-bold text-white"
+              className="font-[family-name:var(--font-vampiro-one)] text-xl text-white"
             >
               Lend<span className="text-accent">Kaki</span>
             </Link>
@@ -98,7 +98,7 @@ export function Footer() {
         <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-4">
           {FOOTER_COLUMNS.map((col) => (
             <div key={col.title}>
-              <p className="text-xs font-semibold uppercase tracking-wider text-gray-500">
+              <p className="text-xs font-semibold uppercase tracking-wider text-accent">
                 {col.title}
               </p>
               <ul className="mt-4 flex flex-col gap-3">
@@ -106,7 +106,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-gray-400 transition-colors hover:text-white"
+                      className="text-sm text-gray-400 transition-colors hover:text-accent"
                     >
                       {link.label}
                     </Link>
@@ -134,10 +134,10 @@ export function Footer() {
             </p>
           </div>
           <div className="flex gap-4 whitespace-nowrap">
-            <Link href="/terms" className="hover:text-gray-300">
+            <Link href="/terms" className="transition-colors hover:text-accent">
               Terms of Use
             </Link>
-            <Link href="/privacy" className="hover:text-gray-300">
+            <Link href="/privacy" className="transition-colors hover:text-accent">
               Privacy Policy
             </Link>
           </div>
