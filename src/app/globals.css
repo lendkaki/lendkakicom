@@ -1,26 +1,176 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Brand Accent ── */
+  --accent: #f7d347;
+  --accent-hover: #e5c23a;
+  --accent-text: #1a1400;
+
+  /* ── Warm-tinted neutrals (hint of yellow hue at chroma 0.01) ── */
+  --white: #fffef9;
+  --gray-50: #faf9f4;
+  --gray-100: #f3f2ed;
+  --gray-200: #e8e7e1;
+  --gray-300: #d4d3cc;
+  --gray-400: #a3a299;
+  --gray-500: #767568;
+  --gray-600: #55544a;
+  --gray-700: #3d3c34;
+  --gray-800: #28271f;
+  --gray-900: #18170f;
+  --black: #0f0e08;
+
+  /* ── Semantic tokens ── */
+  --background: var(--white);
+  --foreground: var(--gray-900);
+  --muted: var(--gray-500);
+  --border: var(--gray-200);
+  --surface: var(--gray-50);
+  --surface-raised: var(--gray-100);
+
+  /* ── Spacing (4pt base) ── */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* ── Fluid type scale ── */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: clamp(1.125rem, 1rem + 0.25vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1rem + 0.5vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 1rem + 1vw, 2rem);
+  --text-3xl: clamp(1.875rem, 1rem + 1.75vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1rem + 2.5vw, 3.5rem);
+  --text-5xl: clamp(2.75rem, 1rem + 3.5vw, 4.5rem);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-text: var(--accent-text);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-white: var(--white);
+  --color-black: var(--black);
+  --color-gray-50: var(--gray-50);
+  --color-gray-100: var(--gray-100);
+  --color-gray-200: var(--gray-200);
+  --color-gray-300: var(--gray-300);
+  --color-gray-400: var(--gray-400);
+  --color-gray-500: var(--gray-500);
+  --color-gray-600: var(--gray-600);
+  --color-gray-700: var(--gray-700);
+  --color-gray-800: var(--gray-800);
+  --color-gray-900: var(--gray-900);
+  --font-sans: var(--font-dm-sans);
+  --font-display: var(--font-instrument-sans);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  font-kerning: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Global focus-visible ring ── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Remove default outline only when focus-visible handles it */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ── Scroll-triggered fade-in animation ── */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ── Marquee animation for testimonials ── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 40s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 40s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-left,
+  .animate-marquee-right {
+    animation: none;
+  }
+}
+
+/* ── WhatsApp notification pulse ── */
+@keyframes ping-red {
+  0% { transform: scale(1); opacity: 0.9; }
+  70% { transform: scale(2.2); opacity: 0; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+.animate-ping-red {
+  animation: ping-red 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-ping-red {
+    animation: none;
+  }
+}
+
+/* ── Rotating text animation ── */
+@keyframes text-rotate {
+  0%, 20% { opacity: 1; transform: translateY(0); }
+  25%, 45% { opacity: 0; transform: translateY(-100%); }
+  50%, 70% { opacity: 1; transform: translateY(0); }
+  75%, 95% { opacity: 0; transform: translateY(-100%); }
+  100% { opacity: 1; transform: translateY(0); }
 }
