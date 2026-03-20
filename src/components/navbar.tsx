@@ -40,7 +40,7 @@ function DropdownItem({ item, onClose }: { item: typeof NAV_ITEMS[0]["children"]
       onClick={onClose}
       className="group flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1"
     >
-      <div className="mt-0.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent transition-transform duration-150 group-hover:scale-150" aria-hidden="true" />
+      <div className="mt-[9px] h-1.5 w-1.5 shrink-0 rounded-full bg-accent transition-transform duration-150 group-hover:scale-150" aria-hidden="true" />
       <div>
         <p className="text-sm font-semibold text-foreground">{item.label}</p>
         <p className="mt-0.5 text-xs text-gray-400">{item.desc}</p>
