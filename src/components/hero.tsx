@@ -66,8 +66,13 @@ export function Hero() {
             </Link>
           </div>
 
+          {/* Mobile otter — between CTAs and stats, hidden on desktop */}
+          <div className="mt-8 flex justify-center lg:hidden">
+            <OtterMascot pose="hero" size={140} />
+          </div>
+
           {/* Stats strip */}
-          <div className="mt-12 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-3 lg:mt-12">
             <StatPill label="Lowest rate found" value="2.0% p.a." />
             <StatPill label="Avg. approval" value="<24h" />
             <StatPill label="Apply securely with" value="Singpass" />

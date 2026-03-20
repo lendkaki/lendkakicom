@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { OtterMascot } from "@/components/mascot/otter-mascot";
 
 interface Feature {
   title: string;
@@ -26,24 +27,7 @@ const FEATURES: Feature[] = [
     href: "/company",
     illustration: (
       <div className="flex h-full w-full items-center justify-center">
-        <svg
-          width="80"
-          height="80"
-          viewBox="0 0 80 80"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          {/* Lightning bolt — speed / fast approval */}
-          <rect width="80" height="80" rx="16" fill="var(--accent)" fillOpacity="0.15" />
-          <path
-            d="M46 14L26 44H42L38 66L58 36H42L46 14Z"
-            fill="var(--accent)"
-            stroke="var(--accent-text)"
-            strokeWidth="2"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <OtterMascot pose="approve" size={100} />
       </div>
     ),
   },
@@ -64,29 +48,7 @@ const FEATURES: Feature[] = [
     href: "/loan-types",
     illustration: (
       <div className="flex h-full w-full items-center justify-center">
-        <svg
-          width="80"
-          height="80"
-          viewBox="0 0 80 80"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          {/* Bank / building — lenders */}
-          <rect width="80" height="80" rx="16" fill="var(--accent)" fillOpacity="0.15" />
-          <rect x="24" y="52" width="32" height="14" rx="2" fill="var(--gray-800)" />
-          <rect x="28" y="40" width="4" height="12" fill="var(--gray-700)" />
-          <rect x="36" y="40" width="4" height="12" fill="var(--gray-700)" />
-          <rect x="44" y="40" width="4" height="12" fill="var(--gray-700)" />
-          <path
-            d="M20 40H60L40 22L20 40Z"
-            fill="var(--accent)"
-            stroke="var(--accent-text)"
-            strokeWidth="2"
-            strokeLinejoin="round"
-          />
-          <rect x="22" y="52" width="36" height="2" rx="1" fill="var(--gray-600)" />
-        </svg>
+        <OtterMascot pose="present" size={100} />
       </div>
     ),
   },
@@ -107,32 +69,7 @@ const FEATURES: Feature[] = [
     href: "/company",
     illustration: (
       <div className="flex h-full w-full items-center justify-center">
-        <svg
-          width="80"
-          height="80"
-          viewBox="0 0 80 80"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          {/* Shield with check — protection / zero impact */}
-          <rect width="80" height="80" rx="16" fill="var(--accent)" fillOpacity="0.15" />
-          <path
-            d="M40 14L18 24V42C18 54 40 66 40 66C40 66 62 54 62 42V24L40 14Z"
-            fill="var(--accent)"
-            fillOpacity="0.3"
-            stroke="var(--accent)"
-            strokeWidth="2.5"
-            strokeLinejoin="round"
-          />
-          <path
-            d="M31 40L37 46L50 34"
-            stroke="var(--gray-900)"
-            strokeWidth="3"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <OtterMascot pose="think" size={100} />
       </div>
     ),
   },
@@ -153,33 +90,7 @@ const FEATURES: Feature[] = [
     href: "/company",
     illustration: (
       <div className="flex h-full w-full items-center justify-center">
-        <svg
-          width="80"
-          height="80"
-          viewBox="0 0 80 80"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          {/* Dollar with a circle cross — free / no cost */}
-          <rect width="80" height="80" rx="16" fill="var(--accent)" fillOpacity="0.15" />
-          <circle
-            cx="40"
-            cy="40"
-            r="22"
-            fill="var(--accent)"
-            fillOpacity="0.25"
-            stroke="var(--accent)"
-            strokeWidth="2.5"
-          />
-          <path
-            d="M40 18V62M48 26H35.5C32.46 26 30 28.46 30 31.5C30 34.54 32.46 37 35.5 37H44.5C47.54 37 50 39.46 50 42.5C50 45.54 47.54 48 44.5 48H32"
-            stroke="var(--gray-900)"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg>
+        <OtterMascot pose="celebrate" size={100} />
       </div>
     ),
   },
