@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { OtterMascot } from "@/components/mascot/otter-mascot";
 
 const ROTATING_WORDS = ["business growth", "personal needs", "your goals"];
 
@@ -73,9 +74,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Mascot placeholder */}
-        <div className="hidden aspect-square w-72 items-center justify-center rounded-3xl bg-surface lg:flex xl:w-80">
-          <span className="text-6xl">🦦</span>
+        {/* Kaki the Otter mascot */}
+        <div className="hidden lg:flex lg:items-center lg:justify-center">
+          <OtterMascot pose="hero" size={220} />
         </div>
       </div>
     </section>

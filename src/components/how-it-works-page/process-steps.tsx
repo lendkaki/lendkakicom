@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { OtterMascot } from "@/components/mascot/otter-mascot";
 
 const STEPS = [
   {
@@ -6,24 +7,7 @@ const STEPS = [
     title: "Apply Once",
     description:
       "Fill in your details in under 2 minutes. One simple form — no need to apply at every bank separately. No documents required at this stage.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path
-          d="M9 5H7C5.895 5 5 5.895 5 7v12c0 1.105.895 2 2 2h10c1.105 0 2-.895 2-2V7c0-1.105-.895-2-2-2h-2"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-        />
-        <rect x="9" y="3" width="6" height="4" rx="1" stroke="currentColor" strokeWidth="1.75" />
-        <path
-          d="M9 12l2 2 4-4"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    mascot: <OtterMascot pose="work" size={100} />,
     detail: "No documents needed upfront",
   },
   {
@@ -31,18 +15,7 @@ const STEPS = [
     title: "Compare Offers",
     description:
       "Receive personalised rates from 20+ licensed lenders. Compare interest rates, tenure, and monthly instalments side by side — all in one place.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <path
-          d="M3 6h18M3 12h18M3 18h18"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-        />
-        <rect x="7" y="4" width="4" height="4" rx="0.5" fill="currentColor" opacity="0.3" />
-        <rect x="7" y="10" width="7" height="4" rx="0.5" fill="currentColor" opacity="0.3" />
-      </svg>
-    ),
+    mascot: <OtterMascot pose="think" size={100} />,
     detail: "Personalised rates, not generic estimates",
   },
   {
@@ -50,14 +23,7 @@ const STEPS = [
     title: "Get Funded",
     description:
       "Choose the best offer for you. Funds can be disbursed as fast as the same day, directly to your account. No hidden fees, no surprises.",
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="2" y="7" width="20" height="14" rx="2" stroke="currentColor" strokeWidth="1.75" />
-        <path d="M16 3H8L2 7h20l-6-4z" stroke="currentColor" strokeWidth="1.75" strokeLinejoin="round" />
-        <circle cx="12" cy="14" r="2" stroke="currentColor" strokeWidth="1.75" />
-        <path d="M6 14h2M16 14h2" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
-      </svg>
-    ),
+    mascot: <OtterMascot pose="celebrate" size={100} />,
     detail: "Same-day disbursement available",
   },
 ];
@@ -95,13 +61,13 @@ export function ProcessSteps() {
                 {step.number}
               </span>
 
-              {/* Icon in accent badge */}
-              <div className="relative flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-accent-text">
-                {step.icon}
+              {/* Otter mascot illustration */}
+              <div className="relative flex items-center justify-center">
+                {step.mascot}
               </div>
 
               {/* Step number label */}
-              <p className="mt-5 text-xs font-semibold uppercase tracking-widest text-gray-400">
+              <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-gray-400">
                 Step {step.number}
               </p>
 

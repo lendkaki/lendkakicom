@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import { OtterMascot } from "@/components/mascot/otter-mascot";
 
 type Urgency = "Today" | "This Week" | "Not Sure" | null;
 type Nationality = "sg-pr" | "foreigner" | null;
@@ -506,8 +507,12 @@ function SuccessScreen({ name }: { name: string }) {
 
   return (
     <div className="animate-fade-up -m-8 rounded-2xl bg-[#0d0d0d] p-8 lg:-m-10 lg:p-10">
+      {/* Otter mascot — celebrating */}
+      <div className="flex justify-center">
+        <OtterMascot pose="celebrate" size={100} />
+      </div>
       <h2
-        className="text-center font-display font-bold uppercase tracking-wider text-white"
+        className="mt-4 text-center font-display font-bold uppercase tracking-wider text-white"
         style={{ fontSize: "var(--text-2xl)" }}
       >
         Thank you, {firstName}! 🎉
@@ -704,8 +709,13 @@ function LenderModal({
               </svg>
             </button>
 
+            {/* Otter mascot — celebrating */}
+            <div className="flex justify-center">
+              <OtterMascot pose="celebrate" size={90} />
+            </div>
+
             <h3
-              className="font-display font-bold uppercase tracking-wider text-accent"
+              className="mt-3 font-display font-bold uppercase tracking-wider text-accent"
               style={{ fontSize: "var(--text-2xl)" }}
             >
               Lenders Found! ✅

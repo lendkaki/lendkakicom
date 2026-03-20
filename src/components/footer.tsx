@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { OtterMascot } from "@/components/mascot/otter-mascot";
 
 const FOOTER_COLUMNS = [
   {
@@ -77,8 +78,9 @@ export function Footer() {
           <div>
             <Link
               href="/"
-              className="font-[family-name:var(--font-vampiro-one)] text-xl text-white"
+              className="inline-flex items-center gap-2 font-[family-name:var(--font-vampiro-one)] text-xl text-white"
             >
+              <OtterMascot pose="small" size={28} />
               Lend<span className="text-accent">Kaki</span>
             </Link>
             <p className="mt-2 max-w-xs text-sm text-gray-400">

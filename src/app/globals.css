@@ -311,6 +311,60 @@ body {
   .animate-draw polyline { animation: none; stroke-dashoffset: 0; }
 }
 
+/* ── Otter mascot animations ── */
+@keyframes otter-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+@keyframes otter-bounce {
+  0%, 100% { transform: translateY(0px) scale(1); }
+  30%       { transform: translateY(-12px) scale(1.03); }
+  60%       { transform: translateY(-4px) scale(1.01); }
+}
+@keyframes otter-sway {
+  0%, 100% { transform: rotate(0deg); }
+  30%       { transform: rotate(-4deg); }
+  70%       { transform: rotate(4deg); }
+}
+@keyframes otter-wave {
+  0%, 100% { transform: rotate(0deg); }
+  20%       { transform: rotate(-6deg); }
+  40%       { transform: rotate(5deg); }
+  60%       { transform: rotate(-4deg); }
+  80%       { transform: rotate(3deg); }
+}
+@keyframes otter-pulse {
+  0%, 100% { transform: scale(1); }
+  50%       { transform: scale(1.05); }
+}
+@keyframes otter-work {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-3px); }
+}
+@keyframes otter-star-blink {
+  0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); }
+  50%       { opacity: 0.5; transform: scale(0.8) rotate(20deg); }
+}
+
+.otter-float  { animation: otter-float  3s ease-in-out infinite; }
+.otter-bounce { animation: otter-bounce 2.4s ease-in-out infinite; }
+.otter-sway   { animation: otter-sway   3s ease-in-out infinite; }
+.otter-wave   { animation: otter-wave   2.5s ease-in-out infinite; }
+.otter-pulse  { animation: otter-pulse  2s ease-in-out infinite; }
+.otter-work   { animation: otter-work   1s ease-in-out infinite; }
+
+.otter-star-1 { animation: otter-star-blink 1.8s ease-in-out infinite; }
+.otter-star-2 { animation: otter-star-blink 2.2s ease-in-out infinite 0.4s; }
+.otter-star-3 { animation: otter-star-blink 1.6s ease-in-out infinite 0.8s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .otter-float, .otter-bounce, .otter-sway,
+  .otter-wave, .otter-pulse, .otter-work,
+  .otter-star-1, .otter-star-2, .otter-star-3 {
+    animation: none;
+  }
+}
+
 /* ── Rotating text animation ── */
 @keyframes text-rotate {
   0%, 20% { opacity: 1; transform: translateY(0); }

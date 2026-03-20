@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { OtterMascot } from "@/components/mascot/otter-mascot";
 
 export const ALL_FAQS = [
   {
@@ -97,9 +98,10 @@ export function FaqSection({ limit, showCta = true }: FaqSectionProps) {
     <section className="bg-white py-20 lg:py-28" id="faq">
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center">
+        <div className="flex flex-col items-center text-center">
+          <OtterMascot pose="think" size={90} />
           <h2
-            className="font-display font-bold tracking-tight text-foreground"
+            className="mt-4 font-display font-bold tracking-tight text-foreground"
             style={{ fontSize: "var(--text-3xl)" }}
           >
             Frequently Asked Questions
