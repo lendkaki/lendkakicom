@@ -1,11 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export function WhatsAppWidget() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    if (pathname === "/apply") return;
+
     const heroEl = document.querySelector<HTMLElement>("main > *:first-child");
 
     const check = () => {
@@ -16,7 +20,9 @@ export function WhatsAppWidget() {
     check();
     window.addEventListener("scroll", check, { passive: true });
     return () => window.removeEventListener("scroll", check);
-  }, []);
+  }, [pathname]);
+
+  if (pathname === "/apply") return null;
 
   return (
     <div
