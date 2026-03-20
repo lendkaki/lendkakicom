@@ -6,6 +6,7 @@ import { Advantages } from "@/components/advantages";
 import { HowItWorks } from "@/components/how-it-works";
 import { Testimonials } from "@/components/testimonials";
 import { BridgeCard } from "@/components/bridge-card";
+import { FaqSection } from "@/components/faq-section";
 import { CtaForm } from "@/components/cta-form";
 import { Footer } from "@/components/footer";
 import { ScrollReveal } from "@/components/scroll-reveal";
@@ -38,6 +39,11 @@ export default function Home() {
         {/* Testimonials — surface background */}
         <ScrollReveal delay={60}>
           <Testimonials />
+        </ScrollReveal>
+
+        {/* FAQ accordion — white background, before CTA */}
+        <ScrollReveal delay={60}>
+          <FaqSection limit={6} />
         </ScrollReveal>
 
         {/* Overlapping bridge card — yellow accent, overlaps into the dark CTA section */}

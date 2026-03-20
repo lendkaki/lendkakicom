@@ -187,7 +187,7 @@ const FEATURES: Feature[] = [
 
 export function Advantages() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-white pb-20 pt-10 lg:pb-28 lg:pt-14">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         {/* Header */}
         <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">

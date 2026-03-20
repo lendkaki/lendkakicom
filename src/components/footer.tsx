@@ -20,7 +20,7 @@ const FOOTER_COLUMNS = [
   {
     title: "Resources",
     links: [
-      { label: "FAQs", href: "/faqs" },
+      { label: "FAQ", href: "/faq" },
       { label: "Loan Calculator", href: "/calculator" },
       { label: "PDPA Compliance", href: "/pdpa" },
     ],
