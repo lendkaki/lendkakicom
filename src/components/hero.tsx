@@ -50,25 +50,28 @@ export function Hero() {
             Compare 20+ licensed lenders. One application.
           </p>
 
-          {/* CTAs */}
-          <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link
-              href="/apply"
-              className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-text transition-colors hover:bg-accent-hover"
-            >
-              Compare Rates Now
-            </Link>
-            <Link
-              href="#how-it-works"
-              className="rounded-full border border-gray-300 px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-gray-400 hover:bg-gray-50"
-            >
-              See How It Works
-            </Link>
-          </div>
+          {/* CTAs + mobile otter side-by-side */}
+          <div className="mt-10 flex items-center gap-6">
+            {/* Buttons — stacked on mobile, row on sm+ */}
+            <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
+              <Link
+                href="/apply"
+                className="rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-text transition-colors hover:bg-accent-hover"
+              >
+                Compare Rates Now
+              </Link>
+              <Link
+                href="#how-it-works"
+                className="rounded-full border border-gray-300 px-7 py-3.5 text-sm font-semibold text-foreground transition-colors hover:border-gray-400 hover:bg-gray-50"
+              >
+                See How It Works
+              </Link>
+            </div>
 
-          {/* Mobile otter — between CTAs and stats, hidden on desktop */}
-          <div className="mt-8 flex justify-center lg:hidden">
-            <OtterMascot pose="hero" size={140} />
+            {/* Mobile otter — right of CTAs, hidden on desktop */}
+            <div className="flex-shrink-0 lg:hidden">
+              <OtterMascot pose="hero" size={110} />
+            </div>
           </div>
 
           {/* Stats strip */}
