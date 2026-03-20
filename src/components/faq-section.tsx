@@ -98,14 +98,11 @@ export function FaqSection({ limit, showCta = true }: FaqSectionProps) {
       <div className="mx-auto max-w-3xl px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
-          <span className="inline-flex rounded-full bg-accent/15 px-3 py-1 text-xs font-semibold text-accent-text">
-            FAQ
-          </span>
           <h2
-            className="mt-4 font-display font-bold tracking-tight text-foreground"
+            className="font-display font-bold tracking-tight text-foreground"
             style={{ fontSize: "var(--text-3xl)" }}
           >
-            Everything you need to know
+            Frequently Asked Questions
           </h2>
           <p className="mt-3 text-sm text-gray-500">
             Everything you need to know about finding your perfect loan.

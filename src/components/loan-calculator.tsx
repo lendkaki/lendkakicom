@@ -251,10 +251,6 @@ export function LoanCalculator() {
         This calculator provides indicative estimates only and does not constitute a loan offer.
         Actual loan terms, interest rates, and monthly instalments may vary depending on the lender,
         your credit profile, and other factors.
-        <br className="hidden sm:block" />
-        LendKaki is managed and operated by Lendkaki Pay Pte. Ltd. (UEN: 202607335C). We are not a
-        lender. All loan products are offered by licensed banks and financial institutions regulated
-        by MAS and/or MinLaw.
       </p>
     </div>
   );

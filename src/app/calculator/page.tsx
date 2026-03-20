@@ -18,17 +18,14 @@ export default function CalculatorPage() {
         {/* Header */}
         <div className="border-b border-border bg-surface py-10 lg:py-14">
           <div className="mx-auto max-w-5xl px-6 lg:px-8">
-            <span className="inline-flex rounded-full bg-accent/15 px-3 py-1 text-xs font-semibold text-accent-text">
-              Free Tool
-            </span>
             <h1
-              className="mt-4 font-display font-bold tracking-tight text-foreground"
+              className="font-display font-bold tracking-tight text-foreground"
               style={{ fontSize: "var(--text-4xl)" }}
             >
               Loan Calculator
             </h1>
             <p className="mt-2 text-sm text-gray-500">
-              Estimate your monthly repayments, total interest, and more.
+              Estimate your monthly repayments, total interest and loan breakdown.
             </p>
           </div>
         </div>

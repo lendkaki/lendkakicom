@@ -6,15 +6,14 @@ const FOOTER_COLUMNS = [
     links: [
       { label: "Personal Loans", href: "/loan-types/personal" },
       { label: "Business Loans", href: "/loan-types/business" },
-      { label: "Bridging Loans", href: "/loan-types/bridging" },
-      { label: "Debt Consolidation", href: "/loan-types/debt-consolidation" },
+      { label: "Instant Loans", href: "/loan-types/instant" },
     ],
   },
   {
     title: "Company",
     links: [
       { label: "Why LendKaki?", href: "/company" },
-      { label: "How It Works", href: "/#how-it-works" },
+      { label: "How It Works", href: "/how-it-works" },
     ],
   },
   {
@@ -32,7 +31,7 @@ const FOOTER_COLUMNS = [
       { label: "+65 8900 9628", href: "tel:+6589009628" },
       {
         label: "2 Venture Drive, #19-21, Vision Exchange, Singapore 608526",
-        href: "#",
+        href: "https://maps.app.goo.gl/aG7P68e8tuzJzwzj7",
       },
     ],
   },
@@ -102,16 +101,22 @@ export function Footer() {
                 {col.title}
               </p>
               <ul className="mt-4 flex flex-col gap-3">
-                {col.links.map((link) => (
-                  <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-gray-400 transition-colors hover:text-accent"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
+                {col.links.map((link) => {
+                  const isExternal = link.href.startsWith("http");
+                  return (
+                    <li key={link.label}>
+                      <Link
+                        href={link.href}
+                        className="text-sm text-gray-400 transition-colors hover:text-accent"
+                        {...(isExternal
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        {link.label}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           ))}
