@@ -28,7 +28,7 @@ const TRUST_POINTS = [
       </svg>
     ),
     title: "Built for Urgency",
-    body: "Need a bridging loan before your property closes? Emergency cash for your business? Our matching engine prioritises speed so you're not left waiting when time is critical.",
+    body: "Need an instant loan for a personal emergency? Cash flow for your business? Our matching engine prioritises speed so you're not left waiting when time is critical.",
   },
   {
     icon: (

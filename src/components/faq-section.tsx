@@ -23,7 +23,7 @@ export const ALL_FAQS = [
   },
   {
     q: "What types of loans can I apply for?",
-    a: "LendKaki helps you compare Personal Loans, Business Loans, Bridging Loans, Debt Consolidation Loans, Wedding Loans, Renovation Loans, and Foreigner Loans. If you are unsure which loan type suits your needs, our team is happy to guide you.",
+    a: "LendKaki helps you compare Personal Loans, Business Loans, and Instant Loans from licensed lenders. If you are unsure which loan type suits your needs, our team is happy to guide you.",
   },
   {
     q: "Who are the lenders on your platform?",

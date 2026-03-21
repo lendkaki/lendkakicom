@@ -176,6 +176,7 @@ function Step1({
             setForm((f) => ({ ...f, amount: Number(e.target.value) }))
           }
           className="apply-slider w-full cursor-pointer"
+          style={{ "--slider-pct": `${((form.amount - 1000) / (200000 - 1000)) * 100}%` } as React.CSSProperties}
           aria-label="Desired loan amount slider"
         />
         <div className="mt-1 flex justify-between text-xs text-gray-400">
