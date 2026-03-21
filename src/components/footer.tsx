@@ -71,7 +71,7 @@ function SocialIcon({ platform }: { platform: "facebook" | "instagram" | "tiktok
 
 export function Footer() {
   return (
-    <footer className="bg-black">
+    <footer className="bg-ink">
       <div className="mx-auto max-w-7xl px-6 pb-8 pt-16 lg:px-8">
         {/* Top row — logo + socials */}
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">

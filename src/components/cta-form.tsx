@@ -23,13 +23,18 @@ function isSgMobileValid(mobile: string) {
   return /^[89]\d{7}$/.test(digits);
 }
 
-const inputCls =
-  "w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent";
+const inputClsDark =
+  "w-full rounded-lg border border-ink-border bg-ink-input px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent";
+const inputClsLight =
+  "w-full rounded-lg border border-gray-200 bg-white px-4 py-3 text-sm text-foreground placeholder:text-gray-400 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent";
 
-const selectCls =
-  "w-full appearance-none rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 pr-10 text-sm text-white focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent";
+const selectClsDark =
+  "w-full appearance-none rounded-lg border border-ink-border bg-ink-input px-4 py-3 pr-10 text-sm text-white focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent";
+const selectClsLight =
+  "w-full appearance-none rounded-lg border border-gray-200 bg-white px-4 py-3 pr-10 text-sm text-foreground focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent";
 
-const labelCls = "mb-1.5 block text-xs font-medium text-gray-400";
+const labelClsDark = "mb-1.5 block text-xs font-medium text-gray-400";
+const labelClsLight = "mb-1.5 block text-xs font-medium text-gray-500";
 
 function ChevronDown() {
   return (
@@ -44,17 +49,25 @@ function ChevronDown() {
 interface CtaFormProps {
   /** Set to true when there is no BridgeCard overlapping from above */
   compact?: boolean;
+  /** Set to true to render the section with a light/white background */
+  light?: boolean;
 }
 
-export function CtaForm({ compact = false }: CtaFormProps) {
+export function CtaForm({ compact = false, light = false }: CtaFormProps) {
   const [residency, setResidency] = useState<"local" | "foreigner">("local");
   const [mobile, setMobile] = useState("");
   const [mobileTouched, setMobileTouched] = useState(false);
   const mobileError =
     mobileTouched && mobile.length > 0 && !isSgMobileValid(mobile);
 
+  const inputCls = light ? inputClsLight : inputClsDark;
+  const selectCls = light ? selectClsLight : selectClsDark;
+  const labelCls = light ? labelClsLight : labelClsDark;
+
   return (
-    <section className={`bg-black pb-20 lg:pb-28 ${compact ? "pt-16 lg:pt-20" : "pt-40 lg:pt-52"}`}>
+    <section
+      className={`pb-20 lg:pb-28 ${compact ? "pt-16 lg:pt-20" : "pt-40 lg:pt-52"} ${light ? "bg-surface" : "bg-ink"}`}
+    >
       <div className="mx-auto grid max-w-7xl gap-12 px-6 lg:grid-cols-2 lg:items-center lg:gap-20 lg:px-8">
         {/* Left — headline + benefits */}
         <div>
@@ -62,7 +75,7 @@ export function CtaForm({ compact = false }: CtaFormProps) {
             20+ Trusted Lenders
           </span>
           <h2
-            className="mt-6 font-display font-bold tracking-tight text-white"
+            className={`mt-6 font-display font-bold tracking-tight ${light ? "text-foreground" : "text-white"}`}
             style={{ fontSize: "var(--text-3xl)" }}
           >
             Explore Your Personal Loan Options Now
@@ -86,7 +99,7 @@ export function CtaForm({ compact = false }: CtaFormProps) {
                     strokeLinejoin="round"
                   />
                 </svg>
-                <span className="text-sm text-gray-300">{b}</span>
+                <span className={`text-sm ${light ? "text-gray-600" : "text-gray-300"}`}>{b}</span>
               </li>
             ))}
           </ul>
@@ -95,7 +108,7 @@ export function CtaForm({ compact = false }: CtaFormProps) {
         {/* Right — form */}
         <form
           onSubmit={(e) => e.preventDefault()}
-          className="rounded-2xl bg-gray-900 p-8"
+          className={`rounded-2xl p-8 ${light ? "bg-white ring-1 ring-border shadow-sm" : "bg-ink-raised"}`}
         >
           <div className="flex flex-col gap-5">
             {/* Name */}
@@ -118,7 +131,7 @@ export function CtaForm({ compact = false }: CtaFormProps) {
                 Mobile Number
               </label>
               <div className="flex">
-                <span className="flex items-center rounded-l-lg border border-r-0 border-gray-700 bg-gray-700 px-4 text-sm font-medium text-gray-400">
+                <span className={`flex items-center rounded-l-lg border border-r-0 px-4 text-sm font-medium ${light ? "border-gray-200 bg-gray-100 text-gray-500" : "border-ink-border bg-ink-raised text-gray-400"}`}>
                   +65
                 </span>
                 <input
@@ -133,10 +146,10 @@ export function CtaForm({ compact = false }: CtaFormProps) {
                   onBlur={() => setMobileTouched(true)}
                   maxLength={9}
                   autoComplete="tel"
-                  className={`w-full rounded-r-lg border bg-gray-800 px-4 py-3 text-sm text-white placeholder:text-gray-500 focus:outline-none focus:ring-1 ${
-                    mobileError
-                      ? "border-red-500 focus:border-red-500 focus:ring-red-500"
-                      : "border-gray-700 focus:border-accent focus:ring-accent"
+                  className={`w-full rounded-r-lg border px-4 py-3 text-sm focus:outline-none focus:ring-1 ${
+                    light
+                      ? `bg-white text-foreground placeholder:text-gray-400 ${mobileError ? "border-red-500 focus:border-red-500 focus:ring-red-500" : "border-gray-200 focus:border-accent focus:ring-accent"}`
+                      : `bg-ink-input text-white placeholder:text-gray-500 ${mobileError ? "border-red-500 focus:border-red-500 focus:ring-red-500" : "border-ink-border focus:border-accent focus:ring-accent"}`
                   }`}
                 />
               </div>
@@ -161,7 +174,7 @@ export function CtaForm({ compact = false }: CtaFormProps) {
                   type="text"
                   inputMode="numeric"
                   placeholder="10,000"
-                  className="w-full rounded-lg border border-gray-700 bg-gray-800 py-3 pl-8 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
+                  className="w-full rounded-lg border border-ink-border bg-ink-input py-3 pl-8 pr-4 text-sm text-white placeholder:text-gray-500 focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent"
                 />
               </div>
             </div>
@@ -213,14 +226,14 @@ export function CtaForm({ compact = false }: CtaFormProps) {
             {/* Residency toggle */}
             <div>
               <span className={labelCls}>Residency</span>
-              <div className="flex rounded-lg bg-gray-800 p-1">
+              <div className={`flex rounded-lg p-1 ${light ? "bg-gray-100" : "bg-ink-input"}`}>
                 <button
                   type="button"
                   onClick={() => setResidency("local")}
                   className={`flex-1 cursor-pointer rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 ${
                     residency === "local"
                       ? "bg-accent text-accent-text"
-                      : "text-gray-400 hover:text-white"
+                      : light ? "text-gray-500 hover:text-foreground" : "text-gray-400 hover:text-white"
                   }`}
                 >
                   Singapore / PR
@@ -231,7 +244,7 @@ export function CtaForm({ compact = false }: CtaFormProps) {
                   className={`flex-1 cursor-pointer rounded-md px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-1 ${
                     residency === "foreigner"
                       ? "bg-accent text-accent-text"
-                      : "text-gray-400 hover:text-white"
+                      : light ? "text-gray-500 hover:text-foreground" : "text-gray-400 hover:text-white"
                   }`}
                 >
                   Foreigner
@@ -247,18 +260,18 @@ export function CtaForm({ compact = false }: CtaFormProps) {
               Get Your Loan Options
             </button>
 
-            <p className="text-center text-[11px] leading-relaxed text-gray-500">
+            <p className={`text-center text-[11px] leading-relaxed ${light ? "text-gray-400" : "text-gray-500"}`}>
               By proceeding, I agree to LendKaki&apos;s{" "}
               <a
                 href="/terms"
-                className="underline hover:text-gray-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+                className={`underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent ${light ? "hover:text-foreground" : "hover:text-gray-300"}`}
               >
                 Terms of Use
               </a>{" "}
               and{" "}
               <a
                 href="/privacy"
-                className="underline hover:text-gray-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+                className={`underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent ${light ? "hover:text-foreground" : "hover:text-gray-300"}`}
               >
                 Privacy Policy
               </a>

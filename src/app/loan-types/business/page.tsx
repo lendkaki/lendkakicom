@@ -3,29 +3,29 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { CtaForm } from "@/components/cta-form";
-import { PersonalHero } from "@/components/loan-types/personal-hero";
-import { PersonalWhy } from "@/components/loan-types/personal-why";
-import { PersonalCalculator } from "@/components/loan-types/personal-calculator";
-import { PersonalTestimonials } from "@/components/loan-types/personal-testimonials";
-import { PersonalFaq } from "@/components/loan-types/personal-faq";
+import { BusinessHero } from "@/components/loan-types/business-hero";
+import { BusinessWhy } from "@/components/loan-types/business-why";
+import { BusinessCalculator } from "@/components/loan-types/business-calculator";
+import { BusinessTestimonials } from "@/components/loan-types/business-testimonials";
+import { BusinessFaq } from "@/components/loan-types/business-faq";
 
 export const metadata: Metadata = {
-  title: "Best Personal Loans Singapore | Compare Rates | LendKaki",
+  title: "Best Business Loans Singapore | Compare SME Loan Rates | LendKaki",
   description:
-    "Compare personal loan rates from 20+ licensed lenders and banks in Singapore. Free, no hidden fees, same-day approval available. Get your best offer in 60 seconds.",
+    "Compare business loan rates from 20+ licensed lenders in Singapore. Fast approval, flexible terms, and free matching for Singapore-registered companies. Get your best SME loan offer in 60 seconds.",
 };
 
-export default function PersonalLoansPage() {
+export default function BusinessLoansPage() {
   return (
     <>
       <Navbar />
       <main className="flex-1 bg-white">
         {/* Hero — no reveal, loads immediately */}
-        <PersonalHero />
+        <BusinessHero />
 
-        {/* Why LendKaki */}
+        {/* Why LendKaki for Business */}
         <ScrollReveal delay={0}>
-          <PersonalWhy />
+          <BusinessWhy />
         </ScrollReveal>
 
         {/* Inline CTA strip — midpage conversion nudge */}
@@ -38,7 +38,7 @@ export default function PersonalLoansPage() {
                     className="font-display font-bold text-accent-text"
                     style={{ fontSize: "var(--text-xl)" }}
                   >
-                    Ready to find your best rate?
+                    Ready to fund your business growth?
                   </p>
                   <p className="mt-0.5 text-sm text-accent-text/70">
                     Free, no obligation, takes less than 2 minutes.
@@ -57,17 +57,17 @@ export default function PersonalLoansPage() {
 
         {/* Calculator */}
         <ScrollReveal delay={0}>
-          <PersonalCalculator />
+          <BusinessCalculator />
         </ScrollReveal>
 
         {/* Testimonials */}
         <ScrollReveal delay={0}>
-          <PersonalTestimonials />
+          <BusinessTestimonials />
         </ScrollReveal>
 
         {/* FAQ */}
         <ScrollReveal delay={0}>
-          <PersonalFaq />
+          <BusinessFaq />
         </ScrollReveal>
 
         {/* Bottom CTA form */}

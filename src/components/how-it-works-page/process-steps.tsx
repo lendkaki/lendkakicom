@@ -16,7 +16,7 @@ const STEPS = [
     description:
       "Receive personalised rates from 20+ licensed lenders. Compare interest rates, tenure, and monthly instalments side by side — all in one place.",
     mascot: <OtterMascot pose="think" size={100} />,
-    detail: "Personalised rates, not generic estimates",
+    detail: "Personalised rates",
   },
   {
     number: "03",
@@ -30,7 +30,7 @@ const STEPS = [
 
 export function ProcessSteps() {
   return (
-    <section className="bg-surface py-20 lg:py-28" id="steps">
+    <section className="bg-surface pb-20 pt-10 lg:pb-28 lg:pt-14" id="steps">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         {/* Header */}
         <div className="text-center">
@@ -54,8 +54,7 @@ export function ProcessSteps() {
             >
               {/* Large faint number watermark */}
               <span
-                className="pointer-events-none absolute -right-2 -top-4 select-none font-display font-bold text-gray-100 transition-colors duration-300 group-hover:text-gray-50"
-                style={{ fontSize: "6rem", lineHeight: 1 }}
+                className="pointer-events-none absolute -right-2 -top-4 select-none font-display font-bold leading-none text-gray-100 transition-colors duration-300 group-hover:text-gray-50 text-[11rem] lg:text-[8rem]"
                 aria-hidden="true"
               >
                 {step.number}
@@ -80,8 +79,8 @@ export function ProcessSteps() {
               <p className="mt-3 text-sm leading-relaxed text-gray-500">{step.description}</p>
 
               {/* Detail tag */}
-              <div className="mt-5 inline-flex items-center gap-1.5 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent-text">
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-text" aria-hidden="true" />
+              <div className="mt-5 inline-flex items-center gap-1.5 rounded-full border border-accent bg-ink px-3 py-1 text-xs font-semibold text-accent">
+                <span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden="true" />
                 {step.detail}
               </div>
             </div>

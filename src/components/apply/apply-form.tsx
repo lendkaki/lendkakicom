@@ -40,8 +40,9 @@ const DESCRIPTION_LABELS: Record<NonNullable<Description>, string> = {
   "other": "Platform Worker (PHV/Delivery)",
 };
 
+/** Locale-independent formatter — avoids SSR/client hydration mismatches. */
 function formatAmount(val: number) {
-  return `$${val.toLocaleString()}`;
+  return `$${val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`;
 }
 
 function ProgressBar({ step }: { step: number }) {
@@ -135,7 +136,7 @@ function Step1({
   };
 
   const displayValue =
-    rawInput !== null ? rawInput : `$${form.amount.toLocaleString()}`;
+    rawInput !== null ? rawInput : formatAmount(form.amount);
 
   return (
     <div className="animate-fade-up">
@@ -567,13 +568,106 @@ function SuccessScreen({ name }: { name: string }) {
   );
 }
 
+const CONFETTI_COLORS = [
+  "#f7d347", // accent yellow
+  "#ffffff", // white
+  "#25D366", // whatsapp green
+  "#ff6b6b", // coral red
+  "#74c0fc", // sky blue
+  "#ffa94d", // orange
+  "#da77f2", // purple
+];
+
+function ConfettiCanvas() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    const W = canvas.offsetWidth;
+    const H = canvas.offsetHeight;
+    canvas.width = W;
+    canvas.height = H;
+
+    // Origin: top-centre of the card
+    const ox = W / 2;
+    const oy = H * 0.25;
+
+    type Particle = {
+      x: number; y: number;
+      vx: number; vy: number;
+      color: string;
+      w: number; h: number;
+      angle: number; spin: number;
+      alpha: number; decay: number;
+    };
+
+    const particles: Particle[] = Array.from({ length: 120 }, () => {
+      const angle = (Math.random() * Math.PI * 2);
+      const speed = 4 + Math.random() * 9;
+      return {
+        x: ox, y: oy,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed - 5, // bias upward
+        color: CONFETTI_COLORS[Math.floor(Math.random() * CONFETTI_COLORS.length)],
+        w: 6 + Math.random() * 6,
+        h: 3 + Math.random() * 4,
+        angle: Math.random() * Math.PI * 2,
+        spin: (Math.random() - 0.5) * 0.25,
+        alpha: 1,
+        decay: 0.012 + Math.random() * 0.008,
+      };
+    });
+
+    let rafId: number;
+    const gravity = 0.35;
+
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+      let alive = false;
+      for (const p of particles) {
+        if (p.alpha <= 0) continue;
+        alive = true;
+        p.vy += gravity;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.angle += p.spin;
+        p.alpha -= p.decay;
+
+        ctx.save();
+        ctx.globalAlpha = Math.max(0, p.alpha);
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.angle);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+        ctx.restore();
+      }
+      if (alive) rafId = requestAnimationFrame(draw);
+    };
+
+    rafId = requestAnimationFrame(draw);
+    return () => cancelAnimationFrame(rafId);
+  }, []);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="pointer-events-none absolute inset-0 h-full w-full"
+      aria-hidden="true"
+    />
+  );
+}
+
 const LOADING_STATES = [
   "Processing your info…",
   "Looking into our pool of lenders…",
   "Matching your profile…",
 ];
 
-const TOTAL_DURATION = 3600; // ms
+const TOTAL_DURATION = 4000; // ms
 const STATE_DURATION = TOTAL_DURATION / LOADING_STATES.length;
 
 function LenderModal({
@@ -624,6 +718,7 @@ function LenderModal({
 
       {/* Modal card */}
       <div className="relative w-full max-w-sm overflow-hidden rounded-3xl bg-[#0d0d0d] p-8 shadow-2xl">
+        {phase === "found" && <ConfettiCanvas />}
         {phase === "loading" ? (
           <div className="flex flex-col items-center py-6 text-center">
             {/* Spinning circle loader */}
@@ -650,8 +745,8 @@ function LenderModal({
                   strokeDashoffset="0"
                 />
               </svg>
-              {/* Yellow dot in centre */}
-              <span className="absolute h-4 w-4 rounded-full bg-accent" />
+              {/* Otter emoji in centre */}
+              <span className="absolute text-2xl leading-none" aria-hidden="true">🦦</span>
             </div>
 
             {/* Step label */}
@@ -719,9 +814,9 @@ function LenderModal({
               className="mt-3 font-display font-bold uppercase tracking-wider text-accent"
               style={{ fontSize: "var(--text-2xl)" }}
             >
-              Lenders Found! ✅
+              Lenders Found
             </h3>
-            <p className="mt-1 text-sm text-gray-300">
+            <p className="mt-2 font-display font-bold text-white" style={{ fontSize: "var(--text-xl)" }}>
               Hi {firstName}, great news!
             </p>
 

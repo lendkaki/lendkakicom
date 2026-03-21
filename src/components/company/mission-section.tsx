@@ -47,27 +47,27 @@ const TRUST_BADGES = [
 
 export function MissionSection() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-ink py-20 lg:py-28">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-center lg:gap-20">
           {/* Text */}
           <div>
-            <span className="text-xs font-semibold uppercase tracking-widest text-accent-text">
+            <span className="text-xs font-semibold uppercase tracking-widest text-accent">
               Our Mission
             </span>
             <h2
-              className="mt-3 font-display font-bold tracking-tight text-foreground"
+              className="mt-3 font-display font-bold tracking-tight text-white"
               style={{ fontSize: "var(--text-3xl)" }}
             >
               Levelling the Playing Field for Borrowers
             </h2>
-            <p className="mt-5 text-sm leading-relaxed text-gray-500">
+            <p className="mt-5 text-sm leading-relaxed text-gray-400">
               Singapore has dozens of licensed lenders, yet most people only approach the one or two
               banks they already know. That means they&apos;re likely over-paying on interest without
               realising it. LendKaki exists to close that gap by giving every borrower visibility
               across the full market so you can make a genuinely informed decision.
             </p>
-            <p className="mt-4 text-sm leading-relaxed text-gray-500">
+            <p className="mt-4 text-sm leading-relaxed text-gray-400">
               We partner exclusively with financial institutions regulated by the Monetary Authority
               of Singapore (MAS) or the Ministry of Law (MinLaw). Our matching service is entirely
               free for borrowers, and it always will be.
@@ -75,14 +75,14 @@ export function MissionSection() {
           </div>
 
           {/* Trust badges card */}
-          <div className="rounded-2xl bg-surface p-8 ring-1 ring-border lg:p-10">
+          <div className="rounded-2xl bg-white/5 p-8 ring-1 ring-white/10 lg:p-10">
             <p
-              className="font-display font-semibold text-foreground"
+              className="font-display font-semibold text-white"
               style={{ fontSize: "var(--text-lg)" }}
             >
               Built on trust, regulated by law.
             </p>
-            <p className="mt-2 text-sm text-gray-500">
+            <p className="mt-2 text-sm text-gray-400">
               Every aspect of our platform is designed to protect you.
             </p>
 
@@ -92,13 +92,13 @@ export function MissionSection() {
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-accent-text">
                     {badge.icon}
                   </div>
-                  <span className="text-sm font-semibold text-foreground">{badge.label}</span>
+                  <span className="text-sm font-semibold text-white">{badge.label}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-8 border-t border-border pt-6">
-              <p className="text-xs leading-relaxed text-gray-400">
+            <div className="mt-8 border-t border-white/10 pt-6">
+              <p className="text-xs leading-relaxed text-gray-500">
                 LendKaki is managed and operated by Lendkaki Pay Pte. Ltd. (UEN: 202607335C).
                 Registered in Singapore.
               </p>

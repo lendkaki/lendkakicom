@@ -205,7 +205,7 @@ export function Navbar() {
             mobileOpen ? "max-h-[600px]" : "max-h-0"
           }`}
         >
-          <div className="bg-gray-950 px-4 pb-8 pt-4">
+          <div className="bg-ink px-4 pb-8 pt-4">
             {NAV_ITEMS.map((item) => (
               <div key={item.href} className="border-b border-white/10 last:border-0">
                 {/* Section toggle */}

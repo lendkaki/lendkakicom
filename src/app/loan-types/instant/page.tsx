@@ -3,32 +3,32 @@ import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { CtaForm } from "@/components/cta-form";
-import { PersonalHero } from "@/components/loan-types/personal-hero";
-import { PersonalWhy } from "@/components/loan-types/personal-why";
-import { PersonalCalculator } from "@/components/loan-types/personal-calculator";
-import { PersonalTestimonials } from "@/components/loan-types/personal-testimonials";
-import { PersonalFaq } from "@/components/loan-types/personal-faq";
+import { InstantHero } from "@/components/loan-types/instant-hero";
+import { InstantWhy } from "@/components/loan-types/instant-why";
+import { InstantCalculator } from "@/components/loan-types/instant-calculator";
+import { InstantTestimonials } from "@/components/loan-types/instant-testimonials";
+import { InstantFaq } from "@/components/loan-types/instant-faq";
 
 export const metadata: Metadata = {
-  title: "Best Personal Loans Singapore | Compare Rates | LendKaki",
+  title: "Instant Loans Singapore | Same-Day Disbursement | LendKaki",
   description:
-    "Compare personal loan rates from 20+ licensed lenders and banks in Singapore. Free, no hidden fees, same-day approval available. Get your best offer in 60 seconds.",
+    "Get an instant loan in Singapore with same-day fund disbursement. Compare offers from 20+ licensed lenders in 60 seconds. Free, no credit impact, apply in 2 minutes.",
 };
 
-export default function PersonalLoansPage() {
+export default function InstantLoansPage() {
   return (
     <>
       <Navbar />
       <main className="flex-1 bg-white">
         {/* Hero — no reveal, loads immediately */}
-        <PersonalHero />
+        <InstantHero />
 
-        {/* Why LendKaki */}
+        {/* Why LendKaki for Instant Loans */}
         <ScrollReveal delay={0}>
-          <PersonalWhy />
+          <InstantWhy />
         </ScrollReveal>
 
-        {/* Inline CTA strip — midpage conversion nudge */}
+        {/* Inline CTA strip — urgency-focused nudge */}
         <ScrollReveal delay={0}>
           <section className="bg-accent py-10">
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -38,10 +38,10 @@ export default function PersonalLoansPage() {
                     className="font-display font-bold text-accent-text"
                     style={{ fontSize: "var(--text-xl)" }}
                   >
-                    Ready to find your best rate?
+                    Need cash today?
                   </p>
                   <p className="mt-0.5 text-sm text-accent-text/70">
-                    Free, no obligation, takes less than 2 minutes.
+                    Apply now — most applicants get funds the same day.
                   </p>
                 </div>
                 <a
@@ -57,17 +57,17 @@ export default function PersonalLoansPage() {
 
         {/* Calculator */}
         <ScrollReveal delay={0}>
-          <PersonalCalculator />
+          <InstantCalculator />
         </ScrollReveal>
 
         {/* Testimonials */}
         <ScrollReveal delay={0}>
-          <PersonalTestimonials />
+          <InstantTestimonials />
         </ScrollReveal>
 
         {/* FAQ */}
         <ScrollReveal delay={0}>
-          <PersonalFaq />
+          <InstantFaq />
         </ScrollReveal>
 
         {/* Bottom CTA form */}

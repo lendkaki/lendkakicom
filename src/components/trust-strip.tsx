@@ -15,9 +15,9 @@ const TRUST_ITEMS = [
     sub: "Soft checks only",
   },
   {
-    value: "100%",
-    label: "Free Service",
-    sub: "No hidden fees ever",
+    value: "$10M+",
+    label: "Loans Disbursed",
+    sub: "And growing every month",
   },
 ];
 

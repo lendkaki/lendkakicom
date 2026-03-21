@@ -4,15 +4,14 @@ import Link from "next/link";
 
 const BULLETS = [
   "20+ licensed lenders in one place",
-  "100% free, no hidden fees",
-  "Same-day approval available",
+  "Free, no obligation matching",
+  "Approval as fast as 24 hours",
 ];
 
 const ELIGIBILITY = [
-  { label: "Min. age 18 years old", icon: "🪪" },
-  { label: "Currently employed", icon: "💼" },
-  { label: "Foreigners: $40K+ annual income", icon: "🌏" },
-  { label: "S'poreans/PR: $300+ monthly income", icon: "🇸🇬" },
+  { label: "Singapore-registered Pte Ltd", icon: "🏢" },
+  { label: "Business 1+ year old", icon: "📅" },
+  { label: "Annual revenue $100K+", icon: "📊" },
 ];
 
 function AnimatedCheck({ delay = 0 }: { delay?: number }) {
@@ -43,7 +42,7 @@ function AnimatedCheck({ delay = 0 }: { delay?: number }) {
   );
 }
 
-export function PersonalHero() {
+export function BusinessHero() {
   return (
     <section className="bg-white pb-16 pt-14 lg:pb-20 lg:pt-20">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -51,15 +50,15 @@ export function PersonalHero() {
           {/* Left — text */}
           <div className="animate-fade-up">
             <span className="inline-flex items-center rounded-full border border-accent bg-accent/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-accent-text shadow-[0_0_12px_2px_rgba(247,211,71,0.35)]">
-              Personal Loans
+              Business Loans
             </span>
             <h1
               className="mt-4 font-display font-bold tracking-tight text-foreground"
               style={{ fontSize: "var(--text-5xl)" }}
             >
-              Singapore&apos;s Best Personal Loan Rates in{" "}
+              Fast Business Funding for{" "}
               <span className="relative inline-block whitespace-nowrap">
-                60 Seconds
+                Singapore SMEs
                 <span
                   className="absolute -bottom-1 left-0 h-1 w-full rounded-full bg-accent"
                   aria-hidden="true"
@@ -67,8 +66,8 @@ export function PersonalHero() {
               </span>
             </h1>
             <p className="mt-5 text-base leading-relaxed text-gray-500">
-              One application, 20+ licensed lenders and banks. Get personalised personal loan offers
-              tailored to your profile — for free.
+              One application, 20+ licensed lenders. Get competitive business
+              loan offers tailored to your company profile — for free.
             </p>
 
             {/* Animated bullet list */}
@@ -76,7 +75,9 @@ export function PersonalHero() {
               {BULLETS.map((text, i) => (
                 <li key={text} className="flex items-start gap-3">
                   <AnimatedCheck delay={200 + i * 150} />
-                  <span className="text-sm font-medium text-foreground">{text}</span>
+                  <span className="text-sm font-medium text-foreground">
+                    {text}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -105,7 +106,7 @@ export function PersonalHero() {
                 href="/apply"
                 className="inline-flex items-center justify-center rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-accent-text transition-colors hover:bg-accent-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               >
-                Compare Rates Now — Free
+                Compare Business Loan Rates — Free
               </Link>
               <Link
                 href="#why"
@@ -117,12 +118,15 @@ export function PersonalHero() {
 
             {/* Micro trust note */}
             <p className="mt-4 text-xs text-gray-400">
-              Trusted by thousands of Singaporeans · No credit impact
+              Trusted by Singapore SMEs · No credit impact · MAS-regulated lenders
             </p>
           </div>
 
-          {/* Right — floating offer card illustration */}
-          <div className="hidden animate-fade-up lg:block" style={{ animationDelay: "150ms" }}>
+          {/* Right — floating business loan offer card */}
+          <div
+            className="hidden animate-fade-up lg:block"
+            style={{ animationDelay: "150ms" }}
+          >
             <div className="relative">
               {/* Main card */}
               <div className="rounded-3xl bg-ink p-8 shadow-2xl">
@@ -131,33 +135,50 @@ export function PersonalHero() {
                     Your best match
                   </span>
                   <span className="rounded-full bg-accent px-3 py-0.5 text-xs font-bold text-accent-text">
-                    Top Offer
+                    SME Loan
                   </span>
                 </div>
                 <p
                   className="mt-4 font-display font-bold text-white"
                   style={{ fontSize: "var(--text-4xl)" }}
                 >
-                  2.0%<span className="text-lg font-normal text-gray-400"> p.a.</span>
+                  3.5%
+                  <span className="text-lg font-normal text-gray-400">
+                    {" "}
+                    p.a.
+                  </span>
                 </p>
-                <p className="mt-1 text-sm text-gray-400">Effective interest rate</p>
+                <p className="mt-1 text-sm text-gray-400">
+                  Effective interest rate
+                </p>
 
                 <div className="mt-6 grid grid-cols-2 gap-4">
                   {[
-                    { label: "Loan Amount", value: "$20,000" },
-                    { label: "Tenure", value: "24 months" },
-                    { label: "Monthly", value: "$851/mo" },
-                    { label: "Approval", value: "Same Day" },
+                    { label: "Loan Amount", value: "$50,000" },
+                    { label: "Tenure", value: "12 months" },
+                    { label: "Monthly", value: "$4,292/mo" },
+                    { label: "Approval", value: "24 Hours" },
                   ].map((item) => (
-                    <div key={item.label} className="rounded-xl bg-white/5 px-4 py-3">
+                    <div
+                      key={item.label}
+                      className="rounded-xl bg-white/5 px-4 py-3"
+                    >
                       <p className="text-xs text-gray-500">{item.label}</p>
-                      <p className="mt-0.5 text-sm font-semibold text-white">{item.value}</p>
+                      <p className="mt-0.5 text-sm font-semibold text-white">
+                        {item.value}
+                      </p>
                     </div>
                   ))}
                 </div>
 
                 <div className="mt-6 flex items-center gap-3 rounded-xl bg-accent/10 px-4 py-3">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <svg
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    aria-hidden="true"
+                  >
                     <path
                       d="M12 3L4 7v5c0 4.418 3.358 8.549 8 9.9C19.642 20.549 20 16.418 20 12V7l-8-4z"
                       stroke="var(--accent)"
@@ -178,17 +199,17 @@ export function PersonalHero() {
                 </div>
               </div>
 
-              {/* Floating badge — "20+ offers" */}
+              {/* Floating badge — disbursed stat */}
               <div
                 className="absolute -left-6 -top-4 animate-fade-up rounded-2xl bg-white px-4 py-3 shadow-xl ring-1 ring-border"
                 style={{ animationDelay: "400ms" }}
               >
-                <p className="text-xs text-gray-400">Matched offers</p>
+                <p className="text-xs text-gray-400">Total disbursed</p>
                 <p
                   className="font-display font-bold text-foreground"
                   style={{ fontSize: "var(--text-2xl)" }}
                 >
-                  20+
+                  $10M+
                 </p>
               </div>
 
@@ -197,8 +218,12 @@ export function PersonalHero() {
                 className="absolute -bottom-4 -right-4 animate-fade-up rounded-2xl bg-accent px-4 py-3 shadow-xl"
                 style={{ animationDelay: "550ms" }}
               >
-                <p className="text-xs font-medium text-accent-text/70">Avg. approval</p>
-                <p className="font-display text-lg font-bold text-accent-text">&lt;24h</p>
+                <p className="text-xs font-medium text-accent-text/70">
+                  Avg. approval
+                </p>
+                <p className="font-display text-lg font-bold text-accent-text">
+                  &lt;24h
+                </p>
               </div>
             </div>
           </div>

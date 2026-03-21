@@ -27,7 +27,7 @@ export default function ApplyPage() {
         <ApplyFaq />
 
         {/* Bottom CTA */}
-        <section className="bg-black py-16 lg:py-20">
+        <section className="bg-ink py-16 lg:py-20">
           <div className="mx-auto max-w-2xl px-6 text-center lg:px-8">
             <h2
               className="font-display font-bold tracking-tight text-white"

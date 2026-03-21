@@ -25,7 +25,7 @@ export function BridgeCard() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/apply"
-                className="inline-flex items-center rounded-full bg-black px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-gray-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
+                className="inline-flex items-center rounded-full bg-ink px-7 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-ink-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ink focus-visible:ring-offset-2 focus-visible:ring-offset-accent"
               >
                 Compare Rates Now
               </Link>

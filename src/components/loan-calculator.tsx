@@ -3,12 +3,20 @@
 import { useState, useId, useCallback } from "react";
 import Link from "next/link";
 
+/** Locale-independent formatters — avoids SSR/client hydration mismatches. */
+function addCommas(n: number) {
+  const [int, dec] = n.toFixed(0).split(".");
+  return int.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (dec ? "." + dec : "");
+}
+
 function fmt(n: number) {
-  return n.toLocaleString("en-SG", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const fixed = n.toFixed(2);
+  const [int, dec] = fixed.split(".");
+  return int.replace(/\B(?=(\d{3})+(?!\d))/g, ",") + "." + dec;
 }
 
 function fmtPct(n: number) {
-  return n.toLocaleString("en-SG", { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+  return n.toFixed(1);
 }
 
 /** Reducing-balance monthly instalment */
@@ -63,13 +71,13 @@ function SliderField({ id, label, value, min, max, step, displayValue, onChange 
           }
         />
         <div className="mt-1.5 flex justify-between text-xs text-gray-400">
-          <span>{min === 1 ? "1%" : `$${min.toLocaleString()}`}</span>
+          <span>{min === 1 ? "1%" : `$${addCommas(min)}`}</span>
           <span>
             {label === "Interest Rate (p.a.)"
               ? "48%"
               : label === "Tenure"
               ? "24 months"
-              : "$100,000+"}
+              : `$${addCommas(max)}`}
           </span>
         </div>
       </div>
@@ -140,8 +148,18 @@ function DonutChart({ principalPct }: { principalPct: number }) {
   );
 }
 
-export function LoanCalculator() {
-  const [amount, setAmount] = useState(10000);
+interface LoanCalculatorProps {
+  amountMin?: number;
+  amountMax?: number;
+  amountDefault?: number;
+}
+
+export function LoanCalculator({
+  amountMin = 1000,
+  amountMax = 100000,
+  amountDefault = 10000,
+}: LoanCalculatorProps = {}) {
+  const [amount, setAmount] = useState(amountDefault);
   const [tenure, setTenure] = useState(12);
   const [rate, setRate] = useState(6.0);
 
@@ -164,10 +182,10 @@ export function LoanCalculator() {
               id={amountId}
               label="Loan Amount"
               value={amount}
-              min={1000}
-              max={100000}
-              step={500}
-              displayValue={`$${amount.toLocaleString()}`}
+              min={amountMin}
+              max={amountMax}
+              step={amountMin >= 10000 ? 5000 : 500}
+              displayValue={`$${addCommas(amount)}`}
               onChange={setAmount}
             />
             <SliderField
@@ -196,7 +214,7 @@ export function LoanCalculator() {
         {/* ── Right: results ── */}
         <div className="flex flex-col gap-4">
           {/* Monthly instalment — hero card */}
-          <div className="rounded-2xl bg-black px-8 py-7 text-center">
+          <div className="rounded-2xl bg-ink px-8 py-7 text-center">
             <p className="text-xs font-semibold uppercase tracking-widest text-gray-400">
               Monthly Instalment
             </p>
@@ -214,21 +232,21 @@ export function LoanCalculator() {
             <div className="flex items-center gap-6">
               <DonutChart principalPct={principalPct} />
               <div className="flex flex-1 flex-col gap-3">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-0.5">
                   <div className="flex items-center gap-2">
                     <span className="h-2.5 w-2.5 rounded-full bg-accent" />
                     <span className="text-xs text-gray-500">Principal</span>
                   </div>
                   <span className="text-sm font-semibold text-foreground">${fmt(amount)}</span>
                 </div>
-                <div className="flex items-center justify-between">
+                <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-0.5">
                   <div className="flex items-center gap-2">
                     <span className="h-2.5 w-2.5 rounded-full bg-gray-300" />
                     <span className="text-xs text-gray-500">Total Interest</span>
                   </div>
                   <span className="text-sm font-semibold text-foreground">${fmt(totalInterest)}</span>
                 </div>
-                <div className="mt-1 border-t border-border pt-3 flex items-center justify-between">
+                <div className="mt-1 border-t border-border pt-3 flex flex-wrap items-center justify-between gap-x-3 gap-y-0.5">
                   <span className="text-xs font-semibold text-foreground">Total Payable</span>
                   <span className="text-sm font-bold text-foreground">${fmt(totalPayable)}</span>
                 </div>

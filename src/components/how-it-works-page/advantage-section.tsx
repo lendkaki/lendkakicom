@@ -82,9 +82,9 @@ const ADVANTAGES = [
         />
       </svg>
     ),
-    tag: "No Fees",
-    title: "100% Free Service",
-    body: "Our comparison service is completely free for borrowers. LendKaki earns referral fees from lenders, not from you. There are zero charges, zero hidden costs, zero obligations.",
+    tag: "Track Record",
+    title: "$10M+ Loans Disbursed",
+    body: "Over $10 million in loans have been successfully disbursed through LendKaki — and the number keeps growing. Thousands of Singaporeans have found better rates and faster approvals with us.",
   },
 ];
 
@@ -115,25 +115,25 @@ export function AdvantageSection() {
           {ADVANTAGES.map((item) => (
             <div
               key={item.title}
-              className="group rounded-2xl bg-surface p-7 ring-1 ring-border transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              className="group rounded-2xl bg-ink-raised p-7 ring-1 ring-white/10 transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/30"
             >
               {/* Icon + tag row */}
               <div className="flex items-center justify-between">
                 <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-accent">
                   {item.icon}
                 </div>
-                <span className="rounded-full border border-border px-2.5 py-0.5 text-[11px] font-semibold text-gray-400">
+                <span className="rounded-full border border-accent/40 px-2.5 py-0.5 text-[11px] font-semibold text-accent/80">
                   {item.tag}
                 </span>
               </div>
 
               <h3
-                className="mt-5 font-display font-semibold text-foreground"
+                className="mt-5 font-display font-semibold text-white"
                 style={{ fontSize: "var(--text-lg)" }}
               >
                 {item.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-gray-500">{item.body}</p>
+              <p className="mt-2 text-sm leading-relaxed text-gray-400">{item.body}</p>
             </div>
           ))}
         </div>

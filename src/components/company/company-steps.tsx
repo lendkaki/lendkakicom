@@ -21,21 +21,21 @@ const STEPS = [
 
 export function CompanySteps() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-ink py-20 lg:py-28">
       <div className="mx-auto max-w-5xl px-6 lg:px-8">
         {/* Header — left-aligned on lg, full width */}
         <div className="grid gap-12 lg:grid-cols-[1fr_1.2fr] lg:items-start lg:gap-20">
           <div className="lg:sticky lg:top-28">
-            <span className="text-xs font-semibold uppercase tracking-widest text-accent-text">
+            <span className="text-xs font-semibold uppercase tracking-widest text-accent">
               How it works
             </span>
             <h2
-              className="mt-3 font-display font-bold tracking-tight text-foreground"
+              className="mt-3 font-display font-bold tracking-tight text-white"
               style={{ fontSize: "var(--text-3xl)" }}
             >
               From Application to Approval in 3 Steps
             </h2>
-            <p className="mt-3 text-sm leading-relaxed text-gray-500">
+            <p className="mt-3 text-sm leading-relaxed text-gray-400">
               No paperwork upfront, no branch visits needed.
             </p>
 
@@ -55,7 +55,7 @@ export function CompanySteps() {
                 {/* Connector line */}
                 {i < STEPS.length - 1 && (
                   <span
-                    className="absolute left-[19px] top-[44px] h-[calc(100%-12px)] w-px bg-gray-200"
+                    className="absolute left-[19px] top-[44px] h-[calc(100%-12px)] w-px bg-white/10"
                     aria-hidden="true"
                   />
                 )}
@@ -68,12 +68,12 @@ export function CompanySteps() {
                 {/* Content */}
                 <div className="pb-10">
                   <h3
-                    className="font-display font-semibold text-foreground"
+                    className="font-display font-semibold text-white"
                     style={{ fontSize: "var(--text-lg)" }}
                   >
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-gray-500">{step.description}</p>
+                  <p className="mt-2 text-sm leading-relaxed text-gray-400">{step.description}</p>
                 </div>
               </li>
             ))}

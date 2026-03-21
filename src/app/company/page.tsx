@@ -43,8 +43,8 @@ export default function CompanyPage() {
           <MissionSection />
         </ScrollReveal>
 
-        {/* Apply Now form — black bg */}
-        <CtaForm compact />
+        {/* Apply Now form — light bg (dark bg on all other pages) */}
+        <CtaForm compact light />
       </main>
       <Footer />
     </>

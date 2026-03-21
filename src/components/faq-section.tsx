@@ -31,7 +31,7 @@ export const ALL_FAQS = [
   },
   {
     q: "What are the eligibility requirements?",
-    a: "To apply through LendKaki you must be at least 21 years old, a Singapore Citizen, Permanent Resident, or foreigner with a valid pass, and have a valid Singapore mobile number. Individual lenders may have additional requirements such as minimum income thresholds — these will be shown alongside each offer.",
+    a: "Minimum age 18 years old. You must be a Singapore Citizen, Permanent Resident, or foreigner with a valid pass, have a valid Singapore mobile number, be currently employed, and meet these income requirements: Singapore citizens and PRs need at least $300 per month; foreigners need at least $40,000 annual income. Individual lenders may have additional requirements — these will be shown alongside each offer.",
   },
   {
     q: "What documents do I need to prepare?",
