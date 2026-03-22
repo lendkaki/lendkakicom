@@ -43,10 +43,10 @@ export function CompanyHero() {
         {/* Team photo */}
         <div className="mt-14 animate-fade-up overflow-hidden rounded-2xl shadow-xl">
           <Image
-            src={encodeURI("/images/lendkaki team.jpg")}
+            src={encodeURI("/images/LK Office Group photo.jpg")}
             alt="The LendKaki team"
-            width={1743}
-            height={765}
+            width={1640}
+            height={720}
             className="w-full object-cover"
             priority
             quality={90}
